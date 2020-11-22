@@ -1,18 +1,13 @@
-import React, { useEffect } from 'react'
-import { getMovies } from './actions/movies'
-import { useDispatch, useSelector } from 'react-redux'
+import React from 'react'
+import MoviesPage from './pages/MoviesPage/MoviesPage'
+import Layout from './components/Layout/Layout'
 
 const App = () => {
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      await dispatch(getMovies(1))
-    }
-    fetchMovies()
-  }, [dispatch])
-
-  return <div>Hi</div>
+  return (
+    <Layout>
+      <MoviesPage />
+    </Layout>
+  )
 }
 
 export default App
