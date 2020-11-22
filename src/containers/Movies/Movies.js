@@ -29,33 +29,43 @@ const Movies = () => {
     dispatch(setCurrentPageNumber(pageNumber))
   }
 
-  // filters movies when search is applied
-  const filteredMovies = null
+  // 1 ADD SEARCH FUNCTIONALITY
+  const searchedMovies = null
 
-  const moviesToDisplay = movies
+  const moviesToDisplay = searchedMovies || movies
+  console.log('MOVIES TO DISPLAY', moviesToDisplay)
 
   const totalMoviesToDisplay = moviesToDisplay.length
     ? moviesToDisplay[0].total_results
     : 0
+  console.log('TOTAL MOVIES TO DISPLAY', totalMoviesToDisplay)
 
-  const mappedMovies = []
+  const moviesToDisplayCurrentPage = moviesToDisplay.find(
+    (moviesPage) => moviesPage.page === session.currentPageNumber,
+  )
+  console.log('MOVIES TO DISPLAY CURRENT PAGE', moviesToDisplayCurrentPage)
+
+  const mappedMovies =
+    moviesToDisplayCurrentPage &&
+    moviesToDisplayCurrentPage.results.map((movie) => (
+      <Movie key={movie.id} movie={movie} />
+    ))
 
   return (
     <section className='movies-pagination-container'>
       <section className='restaurants-container'>
-        {mappedMovies.length ? (
+        {mappedMovies && mappedMovies.length ? (
           mappedMovies
         ) : (
           <p>No movies matching search result found...</p>
         )}
       </section>
 
-      {/* <Pagination /> */}
       {loading && <LoadingSpinner asOverlay />}
-      {/* update pagination values */}
+
       <Pagination
         moviesPerPage={moviesPerPage}
-        totalMovies={400}
+        totalMovies={totalMoviesToDisplay}
         paginate={paginateHandler}
       />
     </section>
