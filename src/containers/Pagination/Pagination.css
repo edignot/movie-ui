@@ -2,21 +2,31 @@
   display: flex;
   justify-content: center;
   list-style: none;
+  width: auto;
 }
 
-.page-item {
+.page-item,
+.page-item-icon {
   text-decoration: none;
   font-size: 1.5rem;
-  margin: 0.5rem;
-  background-color: var(--medium-dark);
+  background-color: var(--light-medium);
   padding: 8px 15px;
-  border-radius: 50%;
 }
 
-.page-item:hover {
-  background-color: var(--dark);
+.page-item-icon {
+  color: var(--dark);
+  display: flex;
+}
+
+.page-item:hover,
+.page-item-icon:hover {
+  background-color: var(--medium-dark);
   cursor: pointer;
   transition: 0.3s;
+}
+
+.page-item-icon:hover {
+  color: var(--extra-light);
 }
 
 .page-item p:hover {
