@@ -33,7 +33,11 @@ const Movies = () => {
   // filters movies when search is applied
   const filteredMovies = null
 
-  // const moviesToMap = filteredMovies ||
+  const moviesToDisplay = movies
+
+  const totalMoviesToDisplay = moviesToDisplay.length
+    ? moviesToDisplay[0].total_results
+    : 0
 
   const mappedMovies = []
 
@@ -52,7 +56,7 @@ const Movies = () => {
       {/* update pagination values */}
       <Pagination
         moviesPerPage={moviesPerPage}
-        totalMovies={70}
+        totalMovies={totalMoviesToDisplay}
         paginate={paginateHandler}
       />
     </section>
