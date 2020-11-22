@@ -53,7 +53,7 @@ const Movies = () => {
 
   return (
     <section className='movies-pagination-container'>
-      <section className='restaurants-container'>
+      <section className='movies-container'>
         {mappedMovies && mappedMovies.length ? (
           mappedMovies
         ) : (

@@ -1,0 +1,25 @@
+.movie-container {
+  position: relative;
+}
+
+.movie-image {
+  width: 100%;
+  height: auto;
+}
+
+.up-vote-icon,
+.down-vote-icon {
+  position: absolute;
+  top: 0.5rem;
+  color: var(--extra-light);
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.up-vote-icon {
+  left: 0.5rem;
+}
+
+.down-vote-icon {
+  right: 0.5rem;
+}
