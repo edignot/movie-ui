@@ -16,6 +16,11 @@ export const session = (session = sessionTemplate, action) => {
         ...session,
         downVotedMovies: [...session.downVotedMovies, action.movie],
       }
+    case 'SET_CURRENT_PAGE_NUMBER':
+      return {
+        ...session,
+        currentPageNumber: action.currentPageNumber,
+      }
     default:
       return session
   }

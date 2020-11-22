@@ -5,11 +5,17 @@ import Movie from '../Movie/Movie'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import Pagination from '../Pagination/Pagination'
 import './Movies.css'
+import { setCurrentPageNumber } from '../../actions/session'
 
 const Movies = () => {
   const dispatch = useDispatch()
 
+  const movies = useSelector((store) => store.movies)
+
+  const session = useSelector((store) => store.session)
+
   const [loading, setLoading] = useState(false)
+  const [moviesPerPage] = useState(20)
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -19,6 +25,15 @@ const Movies = () => {
     }
     fetchMovies()
   }, [dispatch])
+
+  const paginateHandler = (pageNumber) => {
+    dispatch(setCurrentPageNumber(pageNumber))
+  }
+
+  // filters movies when search is applied
+  const filteredMovies = null
+
+  // const moviesToMap = filteredMovies ||
 
   const mappedMovies = []
 
@@ -36,9 +51,9 @@ const Movies = () => {
       {loading && <LoadingSpinner asOverlay />}
       {/* update pagination values */}
       <Pagination
-        moviesPerPage={20}
+        moviesPerPage={moviesPerPage}
         totalMovies={70}
-        // paginate={paginateHandler}
+        paginate={paginateHandler}
       />
     </section>
   )
