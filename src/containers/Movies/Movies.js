@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getMovies } from '../../actions/movies'
+import { getTrendingMovies } from '../../actions/movies'
 import Movie from '../Movie/Movie'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import Pagination from '../Pagination/Pagination'
@@ -11,19 +11,18 @@ const Movies = () => {
   const dispatch = useDispatch()
 
   const movies = useSelector((store) => store.movies)
-
   const session = useSelector((store) => store.session)
 
   const [loading, setLoading] = useState(false)
   const [moviesPerPage] = useState(20)
 
   useEffect(() => {
-    const fetchMovies = async () => {
+    const fetchTrendingMovies = async () => {
       setLoading(true)
-      await dispatch(getMovies(1))
+      !movies.length && (await dispatch(getTrendingMovies(1)))
       setLoading(false)
     }
-    fetchMovies()
+    fetchTrendingMovies()
   }, [dispatch])
 
   const paginateHandler = (pageNumber) => {
@@ -56,7 +55,7 @@ const Movies = () => {
       {/* update pagination values */}
       <Pagination
         moviesPerPage={moviesPerPage}
-        totalMovies={totalMoviesToDisplay}
+        totalMovies={400}
         paginate={paginateHandler}
       />
     </section>
