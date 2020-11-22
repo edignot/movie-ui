@@ -1,0 +1,15 @@
+footer {
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  background-color: var(--dark);
+  box-shadow: 1px -1px 1px 1px rgba(0, 0, 0, 0.13);
+  margin: 0 auto;
+  z-index: 10;
+}
+
+.footer-text {
+  color: var(--medium);
+  align-self: center;
+}
