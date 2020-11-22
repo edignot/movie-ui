@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Movie Search Engine
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[![Netlify Status](https://api.netlify.com/api/v1/badges/20de585e-8e3f-4c91-b6d1-568d785e288a/deploy-status)](https://app.netlify.com/sites/restaurantsearchengine/deploys)
 
-## Available Scripts
+## https://
 
-In the project directory, you can run:
+![Movie Search Engine](/moviesmockup.jpg)
 
-### `npm start`
+## About:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This is a simple MERN full stack application that pulls movie data from downstream[`The Movie Database API`](https://developers.themoviedb.org/3/getting-started/introduction) API, displays trending movies and allows users to search movies by name, up-vote and down-vote movies.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### App presentation video:
 
-### `npm test`
+[![Video App Presentation](/movies.jpg)](https://vimeo.com)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Completed MVP User Stories:
 
-### `npm run build`
+- [ ] A user should be able to search movie by title and see list of all results matching the search keyword.
+- [ ] If downstream API has more that 20 results matching the search input, implement pagination and fetch only one page at a time.
+- [ ] A user should be able to click on any movie and see additional info about it
+- [ ] A user should be able to up-vote or down-vote any movie and all movies that has any votes should be stored to the database
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Future Goals
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [ ]
+- [ ]
+- [ ]
+- [ ]
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## FE Tech Stack:
 
-### `npm run eject`
+#### `Javascript | ES6`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### `React | React Hooks`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### `Redux | Redux Thunk`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### `Axios`
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### `Jest | React Testing Library`
 
-## Learn More
+#### `CSS`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## BE Tech Stack:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+#### `Node | Express`
 
-### Code Splitting
+#### `MongoDB | Mongoose | MongoDB Could Atlas`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+#### `Node Fetch`
 
-### Analyzing the Bundle Size
+#### `Jest | Supertest | Nock`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## File Structure:
 
-### Making a Progressive Web App
+### Here you can find links fo files and some code snippets from those files.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## FE Development Instructions:
 
-### Advanced Configuration
+- clone repo
+- run `npm i`
+- create .env file and add `REACT_APP_API_KEY=<change this to valid API key>`
+- run `npm start`
+- open `http://localhost:3000`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Contributors:
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- [Edita Ignot](https://github.com/edignot)
