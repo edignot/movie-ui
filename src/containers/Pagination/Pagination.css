@@ -1,0 +1,29 @@
+.pages-wrapper {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.page-item {
+  text-decoration: none;
+  font-size: 1.5rem;
+  margin: 0.5rem;
+  background-color: var(--medium-dark);
+  padding: 8px 15px;
+  border-radius: 50%;
+}
+
+.page-item:hover {
+  background-color: var(--dark);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.page-item p:hover {
+  color: var(--extra-light);
+  transition: 0.3s;
+}
+
+.page-item p {
+  color: var(--light);
+}
