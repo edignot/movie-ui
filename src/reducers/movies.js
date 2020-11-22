@@ -1,7 +1,7 @@
 export const movies = (movies = [], action) => {
   switch (action.type) {
     case 'FETCH_MOVIES':
-      return action.movies
+      return [...movies, action.moviesPage]
     default:
       return movies
   }
