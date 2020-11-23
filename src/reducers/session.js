@@ -4,11 +4,14 @@ import {
   FETCH_MOVIES_BY_TITLE,
   CLEAR_SELECTED_MOVIE,
   CLEAR_SEARCH,
+  CLEAR_VOTED,
+  SELECT_VOTED,
 } from '../utils/action-types'
 
 const sessionTemplate = {
   currentPageNumber: 1,
   searchApplied: false,
+  votedApplied: false,
   searchValue: '',
   selectedMovie: {},
   searchedMovies: [],
@@ -24,6 +27,7 @@ export const session = (session = sessionTemplate, action) => {
     case FETCH_MOVIES_BY_TITLE:
       return {
         ...session,
+        votedApplied: false,
         searchApplied: true,
         searchValue: action.searchValue,
         currentPageNumber: action.page,
@@ -46,6 +50,16 @@ export const session = (session = sessionTemplate, action) => {
         searchValue: '',
         currentPageNumber: 1,
         searchedMovies: [],
+      }
+    case CLEAR_VOTED:
+      return {
+        ...session,
+        votedApplied: false,
+      }
+    case SELECT_VOTED:
+      return {
+        ...session,
+        votedApplied: true,
       }
     default:
       return session

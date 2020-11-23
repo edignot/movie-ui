@@ -3,6 +3,11 @@
   justify-content: center;
 }
 
+.search-input-voted-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
 .search-input,
 .search-button {
   margin: 0.5rem 0;
