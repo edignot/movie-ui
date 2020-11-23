@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { getAllVotedMovies } from '../../actions/database'
 import { getTrendingMovies } from '../../actions/movies'
 import {
   setCurrentPageNumber,
@@ -15,6 +16,7 @@ const Movies = () => {
 
   const movies = useSelector((store) => store.movies)
   const session = useSelector((store) => store.session)
+  const database = useSelector((store) => store.database)
 
   const [loading, setLoading] = useState(false)
   const [moviesPerPage] = useState(20)
@@ -22,7 +24,7 @@ const Movies = () => {
   useEffect(() => {
     const fetchTrendingMovies = async () => {
       setLoading(true)
-      // check if already exists don't fetch
+      !database.length && (await dispatch(getAllVotedMovies()))
       !movies.length && (await dispatch(getTrendingMovies(1)))
       setLoading(false)
     }
@@ -41,11 +43,21 @@ const Movies = () => {
     (moviesPage) => moviesPage.page === session.currentPageNumber,
   )
 
-  const mappedMovies =
-    moviesToDisplayCurrentPage &&
-    moviesToDisplayCurrentPage.results.map((movie) => (
+  let mappedMovies
+
+  if (moviesToDisplayCurrentPage) {
+    moviesToDisplayCurrentPage.results.forEach((movie) => {
+      database.forEach((data) => {
+        if (data.id === movie.id) {
+          movie.up_vote = data.up_vote
+          movie.down_vote = data.down_vote
+        }
+      })
+    })
+    mappedMovies = moviesToDisplayCurrentPage.results.map((movie) => (
       <Movie key={movie.id} movie={movie} />
     ))
+  }
 
   const paginateHandler = async (pageNumber) => {
     dispatch(setCurrentPageNumber(pageNumber))

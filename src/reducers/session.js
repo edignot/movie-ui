@@ -1,30 +1,27 @@
+import {
+  FETCH_SELECTED_MOVIE_DETAILS,
+  SET_CURRENT_PAGE_NUMBER,
+  FETCH_MOVIES_BY_TITLE,
+  CLEAR_SELECTED_MOVIE,
+  CLEAR_SEARCH,
+} from '../utils/action-types'
+
 const sessionTemplate = {
   currentPageNumber: 1,
   searchApplied: false,
   searchValue: '',
-  upVotedMovies: [],
-  downVotedMovies: [],
+  selectedMovie: {},
   searchedMovies: [],
 }
 
 export const session = (session = sessionTemplate, action) => {
   switch (action.type) {
-    case 'UP_VOTE_MOVIE':
-      return {
-        ...session,
-        upVotedMovies: [...session.upVotedMovies, action.movie],
-      }
-    case 'DOWN_VOTE_MOVIE':
-      return {
-        ...session,
-        downVotedMovies: [...session.downVotedMovies, action.movie],
-      }
-    case 'SET_CURRENT_PAGE_NUMBER':
+    case SET_CURRENT_PAGE_NUMBER:
       return {
         ...session,
         currentPageNumber: action.currentPageNumber,
       }
-    case 'FETCH_MOVIES_BY_TITLE':
+    case FETCH_MOVIES_BY_TITLE:
       return {
         ...session,
         searchApplied: true,
@@ -32,7 +29,17 @@ export const session = (session = sessionTemplate, action) => {
         currentPageNumber: action.page,
         searchedMovies: [action.moviesPage],
       }
-    case 'CLEAR_SEARCH':
+    case FETCH_SELECTED_MOVIE_DETAILS:
+      return {
+        ...session,
+        selectedMovie: action.selectedMovieDetails,
+      }
+    case CLEAR_SELECTED_MOVIE:
+      return {
+        ...session,
+        selectedMovie: {},
+      }
+    case CLEAR_SEARCH:
       return {
         ...session,
         searchApplied: false,
