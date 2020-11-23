@@ -1,7 +1,10 @@
 const sessionTemplate = {
   currentPageNumber: 1,
+  searchApplied: false,
+  searchValue: '',
   upVotedMovies: [],
   downVotedMovies: [],
+  searchedMovies: [],
 }
 
 export const session = (session = sessionTemplate, action) => {
@@ -15,6 +18,27 @@ export const session = (session = sessionTemplate, action) => {
       return {
         ...session,
         downVotedMovies: [...session.downVotedMovies, action.movie],
+      }
+    case 'SET_CURRENT_PAGE_NUMBER':
+      return {
+        ...session,
+        currentPageNumber: action.currentPageNumber,
+      }
+    case 'FETCH_MOVIES_BY_TITLE':
+      return {
+        ...session,
+        searchApplied: true,
+        searchValue: action.searchValue,
+        currentPageNumber: action.page,
+        searchedMovies: [action.moviesPage],
+      }
+    case 'CLEAR_SEARCH':
+      return {
+        ...session,
+        searchApplied: false,
+        searchValue: '',
+        currentPageNumber: 1,
+        searchedMovies: [],
       }
     default:
       return session

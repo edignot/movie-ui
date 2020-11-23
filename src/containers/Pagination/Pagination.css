@@ -1,0 +1,39 @@
+.pages-wrapper {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  bottom: 0;
+}
+
+.page-item,
+.page-item-icon {
+  text-decoration: none;
+  font-size: 1.5rem;
+  background-color: var(--light-medium);
+  padding: 8px 15px;
+}
+
+.page-item-icon {
+  color: var(--dark);
+  display: flex;
+}
+
+.page-item:hover,
+.page-item-icon:hover {
+  background-color: var(--medium-dark);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.page-item-icon:hover {
+  color: var(--extra-light);
+}
+
+.page-item p:hover {
+  color: var(--extra-light);
+  transition: 0.3s;
+}
+
+.page-item p {
+  color: var(--light);
+}
