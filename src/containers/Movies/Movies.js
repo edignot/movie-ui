@@ -86,7 +86,7 @@ const Movies = () => {
       </section>
 
       <section className='movies-container'>
-        {mappedMovies && mappedMovies.length && mappedMovies}
+        {mappedMovies && mappedMovies.length ? mappedMovies : null}
       </section>
 
       {loading && <LoadingSpinner asOverlay />}
