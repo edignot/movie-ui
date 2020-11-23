@@ -8,8 +8,8 @@
   height: auto;
 }
 
-.up-vote-icon,
-.down-vote-icon {
+.up-vote-icon-wrapper,
+.down-vote-icon-wrapper {
   position: absolute;
   top: 0.5rem;
   color: var(--light);
@@ -17,18 +17,18 @@
   cursor: pointer;
 }
 
-.up-vote-icon:hover,
-.down-vote-icon:hover {
+.up-vote-icon-wrapper:hover,
+.down-vote-icon-wrapper:hover {
   color: var(--extra-light);
   font-size: 2.2rem;
   transition: 0.3s;
 }
 
-.up-vote-icon {
+.up-vote-icon-wrapper {
   left: 0.5rem;
 }
 
-.down-vote-icon {
+.down-vote-icon-wrapper {
   right: 0.5rem;
 }
 
@@ -49,4 +49,8 @@
   color: var(--dark);
   font-size: 4.2rem;
   transition: 0.3s;
+}
+
+.backdrop-container {
+  position: relative;
 }
