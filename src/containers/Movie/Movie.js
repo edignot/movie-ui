@@ -24,6 +24,7 @@ const Movie = ({ movie }) => {
     adult,
     overview,
     media_type,
+    name,
   } = movie
 
   const {
@@ -47,7 +48,7 @@ const Movie = ({ movie }) => {
   }
 
   const handleVote = (vote) => {
-    dispatch(upVoteOrDownVoteMovie(id, title, poster_path, vote))
+    dispatch(upVoteOrDownVoteMovie(id, title || name, poster_path, vote))
   }
 
   return (
