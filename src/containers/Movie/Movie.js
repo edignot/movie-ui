@@ -56,16 +56,16 @@ const Movie = ({ movie }) => {
   return (
     <>
       <section className='movie-container'>
-        <FaThumbsDown
-          className='up-vote-icon'
-          onClick={() => handleVote('down')}
-        />
-        <FaThumbsUp
-          className='down-vote-icon'
-          onClick={() => handleVote('up')}
-        />
-        <p>{up_vote}</p>
-        <p>{down_vote}</p>
+        <section className='up-vote-icon'>
+          <FaThumbsDown onClick={() => handleVote('down')} />
+          <p className='vote-count'>{down_vote || 0}</p>
+        </section>
+
+        <section className='down-vote-icon'>
+          <FaThumbsUp onClick={() => handleVote('up')} />
+          <p className='vote-count'>{up_vote || 0}</p>
+        </section>
+
         <img
           src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           className='movie-image'

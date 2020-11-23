@@ -32,6 +32,10 @@
   right: 0.5rem;
 }
 
+.vote-count {
+  font-size: 1.5rem;
+}
+
 .close-modal-icon {
   position: absolute;
   font-size: 4rem;
