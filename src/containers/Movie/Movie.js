@@ -70,13 +70,19 @@ const Movie = ({ movie }) => {
   return (
     <>
       <section className='movie-container'>
-        <section className='up-vote-icon-wrapper'>
-          <FaThumbsDown onClick={() => handleVote('down')} />
+        <section
+          className='up-vote-icon-wrapper'
+          onClick={() => handleVote('down')}
+        >
+          <FaThumbsDown />
           <p className='vote-count'>{down_vote || 0}</p>
         </section>
 
-        <section className='down-vote-icon-wrapper'>
-          <FaThumbsUp onClick={() => handleVote('up')} />
+        <section
+          className='down-vote-icon-wrapper'
+          onClick={() => handleVote('up')}
+        >
+          <FaThumbsUp />
           <p className='vote-count'>{up_vote || 0}</p>
         </section>
 
@@ -100,13 +106,19 @@ const Movie = ({ movie }) => {
         <p>{media_type}</p>
 
         <section className='backdrop-container'>
-          <section className='up-vote-icon-wrapper'>
-            <FaThumbsDown onClick={() => handleVote('down')} />
+          <section
+            className='up-vote-icon-wrapper'
+            onClick={() => handleVote('down')}
+          >
+            <FaThumbsDown />
             <p className='vote-count'>{down_vote || 0}</p>
           </section>
 
-          <section className='down-vote-icon-wrapper'>
-            <FaThumbsUp onClick={() => handleVote('up')} />
+          <section
+            className='down-vote-icon-wrapper'
+            onClick={() => handleVote('up')}
+          >
+            <FaThumbsUp />
             <p className='vote-count'>{up_vote || 0}</p>
           </section>
 

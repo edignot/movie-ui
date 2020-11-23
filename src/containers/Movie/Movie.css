@@ -1,11 +1,26 @@
 .movie-container {
   position: relative;
+  overflow: hidden;
+  padding-top: 150%;
+
   background-color: var(--dark);
+  cursor: pointer;
 }
 
 .movie-image {
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  position: absolute;
+
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.movie-image:hover {
+  opacity: 1;
+  transition: 0.5s;
 }
 
 .up-vote-icon-wrapper,
@@ -15,6 +30,7 @@
   color: var(--light);
   font-size: 2rem;
   cursor: pointer;
+  z-index: 2;
 }
 
 .up-vote-icon-wrapper:hover,
