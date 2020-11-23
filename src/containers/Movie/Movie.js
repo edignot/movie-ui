@@ -25,6 +25,8 @@ const Movie = ({ movie }) => {
     overview,
     media_type,
     name,
+    up_vote,
+    down_vote,
   } = movie
 
   const {
@@ -62,7 +64,8 @@ const Movie = ({ movie }) => {
           className='down-vote-icon'
           onClick={() => handleVote('up')}
         />
-
+        <p>{up_vote}</p>
+        <p>{down_vote}</p>
         <img
           src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           className='movie-image'

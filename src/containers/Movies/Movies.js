@@ -43,11 +43,21 @@ const Movies = () => {
     (moviesPage) => moviesPage.page === session.currentPageNumber,
   )
 
-  const mappedMovies =
-    moviesToDisplayCurrentPage &&
-    moviesToDisplayCurrentPage.results.map((movie) => (
+  let mappedMovies
+
+  if (moviesToDisplayCurrentPage) {
+    moviesToDisplayCurrentPage.results.forEach((movie) => {
+      database.forEach((data) => {
+        if (data.id === movie.id) {
+          movie.up_vote = data.up_vote
+          movie.down_vote = data.down_vote
+        }
+      })
+    })
+    mappedMovies = moviesToDisplayCurrentPage.results.map((movie) => (
       <Movie key={movie.id} movie={movie} />
     ))
+  }
 
   const paginateHandler = async (pageNumber) => {
     dispatch(setCurrentPageNumber(pageNumber))
