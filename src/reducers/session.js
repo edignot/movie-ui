@@ -38,6 +38,11 @@ export const session = (session = sessionTemplate, action) => {
         ...session,
         selectedMovie: action.selectedMovieDetails,
       }
+    case 'CLEAR_SELECTED_MOVIE':
+      return {
+        ...session,
+        selectedMovie: {},
+      }
     case 'CLEAR_SEARCH':
       return {
         ...session,

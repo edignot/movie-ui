@@ -9,6 +9,10 @@ export const clearSearch = () => ({
   type: 'CLEAR_SEARCH',
 })
 
+export const clearSelectedMovie = () => ({
+  type: 'CLEAR_SELECTED_MOVIE',
+})
+
 export const searchMoviesByTitle = (searchValue, page) => async (dispatch) => {
   try {
     const { data } = await api.fetchMoviesByTitle(searchValue, page)

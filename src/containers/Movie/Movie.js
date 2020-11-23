@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getSelectedMovieDetails } from '../../actions/session'
+import {
+  getSelectedMovieDetails,
+  clearSelectedMovie,
+} from '../../actions/session'
 import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa'
+import { GrFormClose } from 'react-icons/gr'
 import Modal from '../../components/Modal/Modal'
 import './Movie.css'
 
@@ -32,9 +36,13 @@ const Movie = ({ movie }) => {
   const [displayMovieInfo, setDisplayMovieInfo] = useState(false)
 
   const handleDisplayMovieInfo = () => {
-    alert(id)
     dispatch(getSelectedMovieDetails(id))
     setDisplayMovieInfo(true)
+  }
+
+  const handleCloseMovieInfo = () => {
+    dispatch(clearSelectedMovie())
+    setDisplayMovieInfo(false)
   }
 
   return (
@@ -51,6 +59,10 @@ const Movie = ({ movie }) => {
         />
       </section>
       <Modal show={displayMovieInfo}>
+        <GrFormClose
+          className='close-modal-icon'
+          onClick={handleCloseMovieInfo}
+        />
         <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} />
         <p>{title}</p>
         <p>{id}</p>
