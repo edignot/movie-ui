@@ -52,13 +52,13 @@ const Movies = () => {
     ))
 
   return (
-    <section className='movies-pagination-container'>
+    <>
+      <section>
+        {(!mappedMovies || !mappedMovies.length) && <p>No movies found...</p>}
+      </section>
+
       <section className='movies-container'>
-        {mappedMovies && mappedMovies.length ? (
-          mappedMovies
-        ) : (
-          <p>No movies matching search result found...</p>
-        )}
+        {mappedMovies && mappedMovies.length && mappedMovies}
       </section>
 
       {loading && <LoadingSpinner asOverlay />}
@@ -68,7 +68,7 @@ const Movies = () => {
         totalMovies={totalMoviesToDisplay}
         paginate={paginateHandler}
       />
-    </section>
+    </>
   )
 }
 

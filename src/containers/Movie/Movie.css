@@ -11,9 +11,16 @@
 .down-vote-icon {
   position: absolute;
   top: 0.5rem;
-  color: var(--extra-light);
+  color: var(--light);
   font-size: 2rem;
   cursor: pointer;
+}
+
+.up-vote-icon:hover,
+.down-vote-icon:hover {
+  color: var(--extra-light);
+  font-size: 2.2rem;
+  transition: 0.3s;
 }
 
 .up-vote-icon {
