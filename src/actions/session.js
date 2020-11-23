@@ -9,13 +9,15 @@ export const clearSearch = () => ({
   type: 'CLEAR_SEARCH',
 })
 
-export const searchMoviesByTitle = (searchValue) => async (dispatch) => {
+export const searchMoviesByTitle = (searchValue, page) => async (dispatch) => {
   try {
-    const { data } = await api.fetchMoviesByTitle(searchValue)
+    const { data } = await api.fetchMoviesByTitle(searchValue, page)
     console.log(data)
     dispatch({
       type: 'FETCH_MOVIES_BY_TITLE',
       moviesPage: data,
+      searchValue,
+      page
     })
   } catch (error) {
     console.log(error)

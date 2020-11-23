@@ -5,7 +5,10 @@ import Movie from '../Movie/Movie'
 import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
 import Pagination from '../Pagination/Pagination'
 import './Movies.css'
-import { setCurrentPageNumber } from '../../actions/session'
+import {
+  setCurrentPageNumber,
+  searchMoviesByTitle,
+} from '../../actions/session'
 
 const Movies = () => {
   const dispatch = useDispatch()
@@ -19,17 +22,16 @@ const Movies = () => {
   useEffect(() => {
     const fetchTrendingMovies = async () => {
       setLoading(true)
+      // check if already exists don't fetch
       !movies.length && (await dispatch(getTrendingMovies(1)))
       setLoading(false)
     }
     fetchTrendingMovies()
   }, [])
 
-  // 1 ADD SEARCH FUNCTIONALITY
   const searchedMovies = session.searchedMovies
 
-  // DISPLAY SEARCHED MOVIES OR TRENDING IF NO SEARCH APPLIED
-  const moviesToDisplay = searchedMovies || movies
+  const moviesToDisplay = searchedMovies.length ? searchedMovies : movies
 
   const totalMoviesToDisplay = moviesToDisplay.length
     ? moviesToDisplay[0].total_results
@@ -52,9 +54,15 @@ const Movies = () => {
       (moviesPage) => moviesPage.page === pageNumber,
     )
 
-    if (!moviesToDisplayUpdatedPage) {
+    if (!moviesToDisplayUpdatedPage && !session.searchApplied) {
       setLoading(true)
       await dispatch(getTrendingMovies(pageNumber))
+      setLoading(false)
+    }
+
+    if (!moviesToDisplayUpdatedPage && session.searchApplied) {
+      setLoading(true)
+      await dispatch(searchMoviesByTitle(session.searchValue, pageNumber))
       setLoading(false)
     }
   }
