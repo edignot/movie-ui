@@ -1,8 +1,13 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { clearSearch } from '../../actions/session'
 import ScrollHide from '../../components/ScrollHide/ScrollHide'
+import { FcFilmReel } from 'react-icons/fc'
 import './Header.css'
 
 const Header = () => {
+  const dispatch = useDispatch()
+
   const [shouldHideHeader, setShouldHideHeader] = useState(false)
   const [shouldShowShadow, setShouldShowShadow] = useState(false)
 
@@ -26,7 +31,18 @@ const Header = () => {
 
   return (
     <header className={`header ${shadowStyle} ${hiddenStyle}`}>
-      <h1>Movie Search Engine</h1>
+      <section className='header-logo-wrapper'>
+        <FcFilmReel className='logo-icon-left' />
+        <h1
+          onClick={() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+            dispatch(clearSearch())
+          }}
+        >
+          Movie Search Engine
+        </h1>
+        <FcFilmReel className='logo-icon-right' />
+      </section>
     </header>
   )
 }

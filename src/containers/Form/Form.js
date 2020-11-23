@@ -52,8 +52,10 @@ const Form = () => {
       <section className='search-value-container'>
         <p className='search-value'>
           {session.searchApplied
-            ? session.searchValue.toLowerCase()
-            : 'trending movies'}
+            ? `${session.searchValue.toLowerCase()} | ${
+                session.searchedMovies[0].total_results
+              } movies | ${session.searchedMovies[0].total_pages} pages`
+            : `trending movies`}
         </p>
         {session.searchApplied && (
           <section className='search-value-button-wrapper'>
