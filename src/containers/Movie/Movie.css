@@ -70,6 +70,11 @@
   flex-direction: column;
 }
 
+.movie-details-container h2 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
 .movie-duration-language-type-wrapper {
   display: flex;
   justify-content: center;
@@ -98,6 +103,12 @@
 .release-date-website-wrapper {
   display: flex;
   justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
+.release-date-website-wrapper a {
+  color: inherit;
+  font-weight: 700;
 }
 
 .companies-countries-wrapper {
@@ -105,6 +116,10 @@
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 1rem;
+}
+
+.companies-countries-wrapper p {
+  align-self: center;
 }
 
 .companies-list,
@@ -116,7 +131,7 @@
 
 .country-item,
 .company-item {
-  margin: 0 0.5rem;
+  margin: 0.2rem;
   padding: 0.2rem 0.5rem;
   border: 1px solid var(--medium);
   background-color: var(--light);

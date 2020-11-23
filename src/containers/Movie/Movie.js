@@ -57,7 +57,7 @@ const Movie = ({ movie }) => {
       ))
     : []
 
-  const duration = convertMinutes(runtime)
+  const duration = runtime > 0 ? convertMinutes(runtime) : null
 
   const handleDisplayMovieInfo = async () => {
     await dispatch(getSelectedMovieDetails(id))
@@ -114,8 +114,8 @@ const Movie = ({ movie }) => {
           {(title || name) && <h2>{title || name}</h2>}
 
           <section className='movie-duration-language-type-wrapper'>
-            {runtime && <p>{duration}</p>}
-            {runtime && original_language && <p>|</p>}
+            {duration && <p>{duration}</p>}
+            {duration && original_language && <p>|</p>}
             {original_language && <p>{original_language}</p>}
             {original_language && media_type && <p>|</p>}
             <p>{media_type && media_type}</p>
@@ -150,18 +150,18 @@ const Movie = ({ movie }) => {
 
           {overview && <p className='movie-description'>{overview}</p>}
 
-          {mappedProductionCompanies.length && (
+          {mappedProductionCompanies.length ? (
             <section className='companies-countries-wrapper'>
               <p>Production Companies:</p>
               <ul className='companies-list'>{mappedProductionCompanies}</ul>
             </section>
-          )}
-          {mappedProductionCompanies.length && (
+          ) : null}
+          {mappedProductionCompanies.length ? (
             <section className='companies-countries-wrapper'>
               <p>Production Countries:</p>
               <ul className='countries-list'>{mappedProductionCountries}</ul>
             </section>
-          )}
+          ) : null}
         </section>
       </Modal>
     </>
