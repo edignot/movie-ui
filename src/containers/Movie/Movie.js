@@ -7,8 +7,27 @@ import './Movie.css'
 
 const Movie = ({ movie }) => {
   const dispatch = useDispatch()
+  const session = useSelector((store) => store.session)
 
-  const { id, title, poster_path, backdrop_path } = movie
+  const {
+    id,
+    title,
+    poster_path,
+    backdrop_path,
+    release_date,
+    original_language,
+    adult,
+    overview,
+    media_type,
+  } = movie
+
+  const {
+    genres,
+    homepage,
+    production_companies,
+    production_countries,
+    runtime,
+  } = session.selectedMovie
 
   const [displayMovieInfo, setDisplayMovieInfo] = useState(false)
 
