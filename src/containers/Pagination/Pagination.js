@@ -19,27 +19,6 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
     pageNumbers.push(i)
   }
 
-  // const currentPageNumberIndex = pageNumbers.indexOf(currentPageNumber)
-
-  // const pagesDisplayStartIndex =
-  //   currentPageNumberIndex > 1
-  //     ? currentPageNumberIndex - 2
-  //     : currentPageNumberIndex > 0
-  //     ? currentPageNumberIndex - 1
-  //     : 0
-
-  // const pagesDisplayEndIndex =
-  //   currentPageNumberIndex < pageNumbers.length + 1
-  //     ? currentPageNumberIndex + 2
-  //     : currentPageNumberIndex < pageNumbers.length
-  //     ? currentPageNumberIndex + 1
-  //     : pageNumbers.length - 1
-
-  // const pageNumbersToDisplay = pageNumbers.slice(
-  //   pagesDisplayStartIndex,
-  //   pagesDisplayEndIndex,
-  // )
-
   const pageNumberHandler = (number) => {
     paginate(number)
     window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -61,17 +40,6 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
       >
         <BiChevronLeft />
       </li>
-
-      {/* {pageNumbersToDisplay.map((number) => (
-        <li
-          key={number}
-          className='page-item'
-          onClick={() => pageNumberHandler(number)}
-        >
-          <p>{number}</p>
-        </li>
-      ))} */}
-
       <li
         key={currentPageNumber}
         className='page-item'
@@ -79,7 +47,6 @@ const Pagination = ({ moviesPerPage, totalMovies, paginate }) => {
       >
         <p>{currentPageNumber}</p>
       </li>
-
       <li
         className='page-item-icon'
         onClick={() =>

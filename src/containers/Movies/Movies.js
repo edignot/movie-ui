@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getTrendingMovies } from '../../actions/movies'
-import Movie from '../Movie/Movie'
-import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
-import Pagination from '../Pagination/Pagination'
-import './Movies.css'
 import {
   setCurrentPageNumber,
   searchMoviesByTitle,
 } from '../../actions/session'
+import Movie from '../Movie/Movie'
+import LoadingSpinner from '../../components/LoadingSpinner/LoadingSpinner'
+import Pagination from '../Pagination/Pagination'
+import './Movies.css'
 
 const Movies = () => {
   const dispatch = useDispatch()

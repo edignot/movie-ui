@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { clearSearch, searchMoviesByTitle } from '../../actions/session'
 import { BiSearch } from 'react-icons/bi'
 import './Form.css'
-import { clearSearch, searchMoviesByTitle } from '../../actions/session'
 
 const Form = () => {
   const dispatch = useDispatch()

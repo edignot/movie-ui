@@ -17,7 +17,7 @@ export const searchMoviesByTitle = (searchValue, page) => async (dispatch) => {
       type: 'FETCH_MOVIES_BY_TITLE',
       moviesPage: data,
       searchValue,
-      page
+      page,
     })
   } catch (error) {
     console.log(error)
