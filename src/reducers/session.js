@@ -3,6 +3,7 @@ const sessionTemplate = {
   searchApplied: false,
   upVotedMovies: [],
   downVotedMovies: [],
+  searchedMovies: [],
 }
 
 export const session = (session = sessionTemplate, action) => {
@@ -22,7 +23,12 @@ export const session = (session = sessionTemplate, action) => {
         ...session,
         currentPageNumber: action.currentPageNumber,
       }
-
+    case 'FETCH_MOVIES_BY_TITLE':
+      return {
+        ...session,
+        searchApplied: true,
+        searchedMovies: [action.moviesPage],
+      }
     case 'CLEAR_SEARCH':
       return {
         ...session,

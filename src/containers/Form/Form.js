@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BiSearch } from 'react-icons/bi'
 import './Form.css'
+import { searchMoviesByTitle } from '../../actions/session'
 
 const Form = () => {
   const dispatch = useDispatch()
@@ -21,7 +22,7 @@ const Form = () => {
   }
 
   const searchHandler = () => {
-    alert('handle change')
+    dispatch(searchMoviesByTitle(searchValue, 1))
   }
 
   return (
