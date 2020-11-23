@@ -23,33 +23,42 @@ const Movies = () => {
       setLoading(false)
     }
     fetchTrendingMovies()
-  }, [dispatch])
-
-  const paginateHandler = (pageNumber) => {
-    dispatch(setCurrentPageNumber(pageNumber))
-  }
+  }, [])
 
   // 1 ADD SEARCH FUNCTIONALITY
   const searchedMovies = null
 
+  // DISPLAY SEARCHED MOVIES OR TRENDING IF NO SEARCH APPLIED
   const moviesToDisplay = searchedMovies || movies
-  console.log('MOVIES TO DISPLAY', moviesToDisplay)
 
   const totalMoviesToDisplay = moviesToDisplay.length
     ? moviesToDisplay[0].total_results
     : 0
-  console.log('TOTAL MOVIES TO DISPLAY', totalMoviesToDisplay)
 
   const moviesToDisplayCurrentPage = moviesToDisplay.find(
     (moviesPage) => moviesPage.page === session.currentPageNumber,
   )
-  console.log('MOVIES TO DISPLAY CURRENT PAGE', moviesToDisplayCurrentPage)
 
-  const mappedMovies =
-    moviesToDisplayCurrentPage &&
-    moviesToDisplayCurrentPage.results.map((movie) => (
+  let mappedMovies
+  if (moviesToDisplayCurrentPage) {
+    mappedMovies = moviesToDisplayCurrentPage.results.map((movie) => (
       <Movie key={movie.id} movie={movie} />
     ))
+  }
+
+  const paginateHandler = async (pageNumber) => {
+    dispatch(setCurrentPageNumber(pageNumber))
+
+    const moviesToDisplayCurrentPage = moviesToDisplay.find(
+      (moviesPage) => moviesPage.page === pageNumber,
+    )
+
+    if (!moviesToDisplayCurrentPage) {
+      setLoading(true)
+      await dispatch(getTrendingMovies(pageNumber))
+      setLoading(false)
+    }
+  }
 
   return (
     <>
