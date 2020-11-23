@@ -1,4 +1,8 @@
 import * as api from '../api'
+import {
+  FETCH_ALL_VOTED_MOVIES,
+  UP_VOTE_OR_DOWN_VOTE_MOVIE,
+} from '../utils/action-types'
 
 export const upVoteOrDownVoteMovie = (id, title, posterPath, vote) => async (
   dispatch,
@@ -11,7 +15,7 @@ export const upVoteOrDownVoteMovie = (id, title, posterPath, vote) => async (
       vote,
     )
     dispatch({
-      type: 'UP_VOTE_OR_DOWN_VOTE_MOVIE',
+      type: UP_VOTE_OR_DOWN_VOTE_MOVIE,
       movie: data,
     })
   } catch (error) {
@@ -23,7 +27,7 @@ export const getAllVotedMovies = () => async (dispatch) => {
   try {
     const { data } = await api.fetchAllVotedMovies()
     dispatch({
-      type: 'FETCH_ALL_VOTED_MOVIES',
+      type: FETCH_ALL_VOTED_MOVIES,
       votedMovies: data,
     })
   } catch (error) {
