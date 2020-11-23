@@ -1,6 +1,5 @@
 import axios from 'axios'
-
-const BASE_URL = 'https://mmoovviieess.herokuapp.com/api/movies'
+import { BASE_URL } from '../utils/constants'
 
 export const fetchTrendingMovies = (page) =>
   axios.get(`${BASE_URL}/trending/${page}`)

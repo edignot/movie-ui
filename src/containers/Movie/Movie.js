@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   getSelectedMovieDetails,
@@ -10,6 +11,7 @@ import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa'
 import { IoIosClose } from 'react-icons/io'
 import Modal from '../../components/Modal/Modal'
 import './Movie.css'
+import { DEFAULT_MOVIE_POSTER } from '../../utils/constants'
 
 const Movie = ({ movie }) => {
   const dispatch = useDispatch()
@@ -67,6 +69,10 @@ const Movie = ({ movie }) => {
     dispatch(upVoteOrDownVoteMovie(id, title || name, poster_path, vote))
   }
 
+  const addDefaultImageSrc = (e) => {
+    e.target.src = DEFAULT_MOVIE_POSTER
+  }
+
   return (
     <>
       <section className='movie-container'>
@@ -88,6 +94,7 @@ const Movie = ({ movie }) => {
 
         <img
           src={`https://image.tmdb.org/t/p/w500${poster_path}`}
+          onError={addDefaultImageSrc}
           className='movie-image'
           alt={title}
           onClick={handleDisplayMovieInfo}
@@ -122,7 +129,10 @@ const Movie = ({ movie }) => {
             <p className='vote-count'>{up_vote || 0}</p>
           </section>
 
-          <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} />
+          <img
+            src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
+            onError={addDefaultImageSrc}
+          />
         </section>
 
         <p>Release {release_date}</p>
@@ -150,3 +160,7 @@ const Movie = ({ movie }) => {
 }
 
 export default Movie
+
+Movie.propTypes = {
+  movie: PropTypes.object,
+}
