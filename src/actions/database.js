@@ -18,3 +18,15 @@ export const upVoteOrDownVoteMovie = (id, title, posterPath, vote) => async (
     console.log(error)
   }
 }
+
+export const getAllVotedMovies = () => async (dispatch) => {
+  try {
+    const { data } = await api.fetchAllVotedMovies()
+    dispatch({
+      type: 'FETCH_ALL_VOTED_MOVIES',
+      votedMovies: data,
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}

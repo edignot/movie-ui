@@ -16,3 +16,5 @@ export const postUpVoteOrDownVoteMovie = (id, title, posterPath, vote) =>
     posterPath,
     vote,
   })
+
+export const fetchAllVotedMovies = () => axios.get(`${BASE_URL}/voted`)
