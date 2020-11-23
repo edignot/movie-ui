@@ -1,14 +1,20 @@
 import React, { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { getSelectedMovieDetails } from '../../actions/session'
 import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa'
 import Modal from '../../components/Modal/Modal'
 import './Movie.css'
 
 const Movie = ({ movie }) => {
+  const dispatch = useDispatch()
+
   const { id, title, poster_path, backdrop_path } = movie
 
   const [displayMovieInfo, setDisplayMovieInfo] = useState(false)
 
   const handleDisplayMovieInfo = () => {
+    alert(id)
+    dispatch(getSelectedMovieDetails(id))
     setDisplayMovieInfo(true)
   }
 
@@ -28,6 +34,7 @@ const Movie = ({ movie }) => {
       <Modal show={displayMovieInfo}>
         <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} />
         <p>{title}</p>
+        <p>{id}</p>
       </Modal>
     </>
   )

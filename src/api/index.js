@@ -7,3 +7,5 @@ export const fetchTrendingMovies = (page) =>
 
 export const fetchMoviesByTitle = (searchValue, page) =>
   axios.get(`${BASE_URL}/${searchValue}/${page}`)
+
+export const fetchSelectedMovieDetails = (id) => axios.get(`${BASE_URL}/${id}`)

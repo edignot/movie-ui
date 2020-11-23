@@ -12,12 +12,24 @@ export const clearSearch = () => ({
 export const searchMoviesByTitle = (searchValue, page) => async (dispatch) => {
   try {
     const { data } = await api.fetchMoviesByTitle(searchValue, page)
-    console.log(data)
     dispatch({
       type: 'FETCH_MOVIES_BY_TITLE',
       moviesPage: data,
       searchValue,
       page,
+    })
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+export const getSelectedMovieDetails = (id) => async (dispatch) => {
+  try {
+    const { data } = await api.fetchSelectedMovieDetails(id)
+    console.log(data)
+    dispatch({
+      type: 'FETCH_SELECTED_MOVIE_DETAILS',
+      selectedMovieDetails: data,
     })
   } catch (error) {
     console.log(error)
