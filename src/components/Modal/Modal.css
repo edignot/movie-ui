@@ -10,17 +10,16 @@
 }
 
 .modal-main {
-  /* position: fixed; */
   position: relative;
   background: var(--extra-light);
-  width: 100%;
+  width: 90%;
   height: auto;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 50px 30px;
   box-shadow: 10px 10px 10px rgba(58, 58, 58, 0.03);
-  border-radius: 7px;
+  border-radius: 2px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -36,30 +35,30 @@
 
 @media (min-width: 640px) {
   .modal-main {
-    width: 90vw;
+    width: 85vw;
   }
 }
 
 @media (min-width: 768px) {
   .modal-main {
-    width: 90vw;
+    width: 80vw;
   }
 }
 
 @media (min-width: 880px) {
   .modal-main {
-    width: 90vw;
+    width: 75vw;
   }
 }
 
 @media (min-width: 1024px) {
   .modal-main {
-    width: 90vw;
+    width: 60vw;
   }
 }
 
 @media (min-width: 1280px) {
   .modal-main {
-    width: 90vw;
+    width: 50vw;
   }
 }

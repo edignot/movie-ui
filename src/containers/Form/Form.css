@@ -13,13 +13,13 @@
 }
 
 .search-input {
-  border-radius: 5px 0 0 5px;
+  border-radius: 2px 0 0 2px;
 }
 
 .search-button {
   margin: 0.5rem;
   padding: 0.5rem;
-  border-radius: 5px;
+  border-radius: 2px;
   border: 1px solid var(--medium);
   background-color: var(--medium-dark);
   color: var(--light);
@@ -34,7 +34,7 @@
 }
 
 .search-button {
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 2px 2px 0;
   cursor: pointer;
   margin: 0.5rem 0;
 }

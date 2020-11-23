@@ -17,7 +17,7 @@
   border: 1px solid var(--dark);
   background-color: var(--dark);
   box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .search-value {

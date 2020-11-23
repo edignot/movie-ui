@@ -15,7 +15,7 @@ const MoviesPage = () => {
       <Form />
       {session.searchApplied && (
         <section className='search-value-container'>
-          <p className='search-value'>{session.searchValue}</p>
+          <p className='search-value'>{session.searchValue.toLowerCase()}</p>
           <section className='search-value-button-wrapper'>
             <IoIosClose
               className='search-value-button'
