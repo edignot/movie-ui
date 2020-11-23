@@ -81,9 +81,11 @@ const Movies = () => {
 
   return (
     <>
-      <section>
-        {(!mappedMovies || !mappedMovies.length) && <p>No movies found...</p>}
-      </section>
+      {(!mappedMovies || !mappedMovies.length) && (
+        <section className='not-found-message-wrapper'>
+          <p>No movies found...</p>
+        </section>
+      )}
 
       <section className='movies-container'>
         {mappedMovies && mappedMovies.length ? mappedMovies : null}
