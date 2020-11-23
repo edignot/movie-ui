@@ -27,6 +27,7 @@ export const session = (session = sessionTemplate, action) => {
       return {
         ...session,
         searchApplied: true,
+        currentPageNumber: 1,
         searchedMovies: [action.moviesPage],
       }
     case 'CLEAR_SEARCH':
@@ -34,6 +35,7 @@ export const session = (session = sessionTemplate, action) => {
         ...session,
         searchApplied: false,
         currentPageNumber: 1,
+        searchedMovies: [],
       }
     default:
       return session

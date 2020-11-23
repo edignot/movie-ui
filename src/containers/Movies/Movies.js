@@ -26,7 +26,7 @@ const Movies = () => {
   }, [])
 
   // 1 ADD SEARCH FUNCTIONALITY
-  const searchedMovies = null
+  const searchedMovies = session.searchedMovies
 
   // DISPLAY SEARCHED MOVIES OR TRENDING IF NO SEARCH APPLIED
   const moviesToDisplay = searchedMovies || movies

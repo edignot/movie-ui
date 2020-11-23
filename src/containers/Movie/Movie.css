@@ -1,5 +1,6 @@
 .movie-container {
   position: relative;
+  background-color: var(--dark);
 }
 
 .movie-image {

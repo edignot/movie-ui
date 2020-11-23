@@ -2,16 +2,16 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { BiSearch } from 'react-icons/bi'
 import './Form.css'
-import { searchMoviesByTitle } from '../../actions/session'
+import { clearSearch, searchMoviesByTitle } from '../../actions/session'
 
 const Form = () => {
   const dispatch = useDispatch()
 
   const [searchValue, setSearchValue] = useState('')
 
-  // useEffect(() => {
-  //   searchValue === '' && dispatch(clearSearch())
-  // }, [searchValue])
+  useEffect(() => {
+    searchValue === '' && dispatch(clearSearch())
+  }, [searchValue])
 
   const handleChange = (e) => {
     setSearchValue(e.target.value)
