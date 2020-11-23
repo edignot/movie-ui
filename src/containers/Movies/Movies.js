@@ -39,21 +39,20 @@ const Movies = () => {
     (moviesPage) => moviesPage.page === session.currentPageNumber,
   )
 
-  let mappedMovies
-  if (moviesToDisplayCurrentPage) {
-    mappedMovies = moviesToDisplayCurrentPage.results.map((movie) => (
+  const mappedMovies =
+    moviesToDisplayCurrentPage &&
+    moviesToDisplayCurrentPage.results.map((movie) => (
       <Movie key={movie.id} movie={movie} />
     ))
-  }
 
   const paginateHandler = async (pageNumber) => {
     dispatch(setCurrentPageNumber(pageNumber))
 
-    const moviesToDisplayCurrentPage = moviesToDisplay.find(
+    const moviesToDisplayUpdatedPage = moviesToDisplay.find(
       (moviesPage) => moviesPage.page === pageNumber,
     )
 
-    if (!moviesToDisplayCurrentPage) {
+    if (!moviesToDisplayUpdatedPage) {
       setLoading(true)
       await dispatch(getTrendingMovies(pageNumber))
       setLoading(false)
