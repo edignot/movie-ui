@@ -30,7 +30,6 @@ export const searchMoviesByTitle = (searchValue, page) => async (dispatch) => {
 export const getSelectedMovieDetails = (id) => async (dispatch) => {
   try {
     const { data } = await api.fetchSelectedMovieDetails(id)
-    console.log(data)
     dispatch({
       type: 'FETCH_SELECTED_MOVIE_DETAILS',
       selectedMovieDetails: data,

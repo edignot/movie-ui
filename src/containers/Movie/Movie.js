@@ -5,6 +5,7 @@ import {
   clearSelectedMovie,
 } from '../../actions/session'
 import { upVoteOrDownVoteMovie } from '../../actions/database'
+import { convertMinutes } from '../../utils/conversions'
 import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa'
 import { IoIosClose } from 'react-icons/io'
 import Modal from '../../components/Modal/Modal'
@@ -14,6 +15,8 @@ const Movie = ({ movie }) => {
   const dispatch = useDispatch()
   const session = useSelector((store) => store.session)
 
+  const [displayMovieInfo, setDisplayMovieInfo] = useState(false)
+
   const {
     id,
     title,
@@ -21,7 +24,6 @@ const Movie = ({ movie }) => {
     backdrop_path,
     release_date,
     original_language,
-    adult,
     overview,
     media_type,
     name,
@@ -37,10 +39,22 @@ const Movie = ({ movie }) => {
     runtime,
   } = session.selectedMovie
 
-  const [displayMovieInfo, setDisplayMovieInfo] = useState(false)
+  const mappedProductionCompanies = production_companies
+    ? production_companies.map((company) => (
+        <li key={company.id}>{company.name}</li>
+      ))
+    : []
 
-  const handleDisplayMovieInfo = () => {
-    dispatch(getSelectedMovieDetails(id))
+  const mappedProductionCountries = production_countries
+    ? production_countries.map((country) => (
+        <li key={country.iso_3166_1}>{country.name}</li>
+      ))
+    : []
+
+  const duration = convertMinutes(runtime)
+
+  const handleDisplayMovieInfo = async () => {
+    await dispatch(getSelectedMovieDetails(id))
     setDisplayMovieInfo(true)
   }
 
@@ -80,7 +94,10 @@ const Movie = ({ movie }) => {
           onClick={handleCloseMovieInfo}
         />
 
-        <h2>{title}</h2>
+        <h2>{title || name}</h2>
+        <p>{runtime && duration}</p>
+        <p>{original_language}</p>
+        <p>{media_type}</p>
 
         <section className='backdrop-container'>
           <section className='up-vote-icon-wrapper'>
@@ -97,6 +114,24 @@ const Movie = ({ movie }) => {
         </section>
 
         <p>Release {release_date}</p>
+
+        <p>{overview}</p>
+
+        {homepage && <a href={homepage}>Visit Official Website</a>}
+
+        {mappedProductionCompanies.length && (
+          <section>
+            <p>Production Companies:</p>
+            <ul>{mappedProductionCompanies}</ul>
+          </section>
+        )}
+
+        {mappedProductionCompanies.length && (
+          <section>
+            <p>Production Countries:</p>
+            <ul>{mappedProductionCountries}</ul>
+          </section>
+        )}
       </Modal>
     </>
   )
