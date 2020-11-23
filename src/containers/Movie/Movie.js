@@ -56,12 +56,12 @@ const Movie = ({ movie }) => {
   return (
     <>
       <section className='movie-container'>
-        <section className='up-vote-icon'>
+        <section className='up-vote-icon-wrapper'>
           <FaThumbsDown onClick={() => handleVote('down')} />
           <p className='vote-count'>{down_vote || 0}</p>
         </section>
 
-        <section className='down-vote-icon'>
+        <section className='down-vote-icon-wrapper'>
           <FaThumbsUp onClick={() => handleVote('up')} />
           <p className='vote-count'>{up_vote || 0}</p>
         </section>
@@ -73,22 +73,30 @@ const Movie = ({ movie }) => {
           onClick={handleDisplayMovieInfo}
         />
       </section>
+
       <Modal show={displayMovieInfo}>
         <IoIosClose
           className='close-modal-icon'
           onClick={handleCloseMovieInfo}
         />
-        <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} />
-        <p>{title}</p>
-        <p>{id}</p>
-        <FaThumbsDown
-          className='up-vote-icon-modal'
-          onClick={() => handleVote('down')}
-        />
-        <FaThumbsUp
-          className='down-vote-icon-modal'
-          onClick={() => handleVote('up')}
-        />
+
+        <h2>{title}</h2>
+
+        <section className='backdrop-container'>
+          <section className='up-vote-icon-wrapper'>
+            <FaThumbsDown onClick={() => handleVote('down')} />
+            <p className='vote-count'>{down_vote || 0}</p>
+          </section>
+
+          <section className='down-vote-icon-wrapper'>
+            <FaThumbsUp onClick={() => handleVote('up')} />
+            <p className='vote-count'>{up_vote || 0}</p>
+          </section>
+
+          <img src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} />
+        </section>
+
+        <p>Release {release_date}</p>
       </Modal>
     </>
   )
