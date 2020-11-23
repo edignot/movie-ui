@@ -10,7 +10,6 @@ export const upVoteOrDownVoteMovie = (id, title, posterPath, vote) => async (
       posterPath,
       vote,
     )
-    console.log(data)
     dispatch({
       type: 'UP_VOTE_OR_DOWN_VOTE_MOVIE',
       movie: data,
