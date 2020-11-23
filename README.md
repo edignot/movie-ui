@@ -1,14 +1,14 @@
 # Movie Search Engine
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/20de585e-8e3f-4c91-b6d1-568d785e288a/deploy-status)](https://app.netlify.com/sites/restaurantsearchengine/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6c2f3a09-b500-460f-8647-122f0fcfeacc/deploy-status)](https://app.netlify.com/sites/mmoovviieess/deploys)
 
-## https://
+## https://mmoovviieess.netlify.app/
 
 ![Movie Search Engine](/moviesmockup.jpg)
 
 ## About:
 
-This is a simple MERN full stack application that pulls movie data from downstream[`The Movie Database API`](https://developers.themoviedb.org/3/getting-started/introduction) API, displays trending movies and allows users to search movies by name, up-vote and down-vote movies.
+:movie_camera: This is a MERN full-stack application that pulls movie data from downstream[`The Movie Database API`](https://developers.themoviedb.org/3/getting-started/introduction) API, displays trending movies, and allows users to search movies by name, up-vote, and down-vote movies.
 
 #### App presentation video:
 
