@@ -10,7 +10,8 @@
 }
 
 .modal-main {
-  position: fixed;
+  /* position: fixed; */
+  position: relative;
   background: var(--extra-light);
   width: 100%;
   height: auto;

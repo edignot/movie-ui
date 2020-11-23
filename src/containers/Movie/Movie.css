@@ -31,3 +31,18 @@
 .down-vote-icon {
   right: 0.5rem;
 }
+
+.close-modal-icon {
+  position: absolute;
+  font-size: 4rem;
+  color: var(--medium);
+  cursor: pointer;
+  top: 0rem;
+  right: 0;
+}
+
+.close-modal-icon:hover {
+  color: var(--dark);
+  font-size: 4.2rem;
+  transition: 0.3s;
+}

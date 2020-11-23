@@ -5,7 +5,7 @@ import {
   clearSelectedMovie,
 } from '../../actions/session'
 import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa'
-import { GrFormClose } from 'react-icons/gr'
+import { IoIosClose } from 'react-icons/io'
 import Modal from '../../components/Modal/Modal'
 import './Movie.css'
 
@@ -59,7 +59,7 @@ const Movie = ({ movie }) => {
         />
       </section>
       <Modal show={displayMovieInfo}>
-        <GrFormClose
+        <IoIosClose
           className='close-modal-icon'
           onClick={handleCloseMovieInfo}
         />
