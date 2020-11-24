@@ -6,6 +6,7 @@ import {
   selectVoted,
   searchMoviesByTitle,
 } from '../../actions/session'
+import { FaThumbsDown, FaThumbsUp } from 'react-icons/fa'
 import { BiSearch } from 'react-icons/bi'
 import { IoIosClose } from 'react-icons/io'
 import './Form.css'
@@ -13,6 +14,7 @@ import './Form.css'
 const Form = () => {
   const dispatch = useDispatch()
   const session = useSelector((store) => store.session)
+  const database = useSelector((store) => store.database)
 
   const [searchValue, setSearchValue] = useState('')
 
@@ -64,7 +66,7 @@ const Form = () => {
         </section>
         <section className='search-input-wrapper'>
           <button onClick={votedHandler} className='search-button'>
-            Voted Movies
+            <FaThumbsDown /> Voted Movies <FaThumbsUp />
           </button>
         </section>
       </section>
@@ -74,7 +76,13 @@ const Form = () => {
           {session.searchApplied
             ? `${session.searchValue.toLowerCase()} | ${
                 session.searchedMovies[0].total_results
-              } movies | ${session.searchedMovies[0].total_pages} pages`
+              } movies | ${session.searchedMovies[0].total_pages} ${
+                session.searchedMovies[0].total_pages > 1 ? 'pages' : 'page'
+              }`
+            : session.votedApplied
+            ? `voted movies | ${database.length} movies | ${Math.ceil(
+                database.length / 20,
+              )} ${Math.ceil(database.length / 20) > 1 ? 'pages' : 'page'}`
             : `trending movies`}
         </p>
         {session.searchApplied && (
