@@ -51,8 +51,7 @@
 - `Heroku`
 
 ## File Structure:
-### [`BE SERVER repo`](https://github.com/edignot/movie-api)
-Deployed API: mmoovviieess.herokuapp.com/
+### [`BE SERVER repo`](https://github.com/edignot/movie-api) [Deployed API](mmoovviieess.herokuapp.com/)
   #### Server
   - [`Server Setup`](https://github.com/edignot/movie-api/blob/master/server.js)
   - [`Express App Setup`](https://github.com/edignot/movie-api/blob/master/app.js)
@@ -65,8 +64,7 @@ Deployed API: mmoovviieess.herokuapp.com/
   #### API Tests
   - [`API Endpoint Tests`](https://github.com/edignot/movie-api/blob/master/api/tests/movieEndpoints.test.js)
 
-### [`FE UI repo`](https://github.com/edignot/movie-ui)
-Deployed UI: https://mmoovviieess.netlify.app/
+### [`FE UI repo`](https://github.com/edignot/movie-ui) [Deployed UI](https://mmoovviieess.netlify.app/)
   #### API Calls
   - [`API Calls to Server`](https://github.com/edignot/movie-ui/blob/master/src/api/index.js)
   #### Redux Setup
