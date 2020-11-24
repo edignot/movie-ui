@@ -33,22 +33,22 @@ const Movies = () => {
 
   const searchedMovies = session.searchedMovies
 
-  const votedMovies = [
-    {
-      page: 1,
-      results: database,
-      total_pages: 1,
-      total_results: database.length,
-    },
-  ]
+  let moviesToDisplay
 
-  const moviesToDisplay = session.votedApplied
-    ? votedMovies
-    : searchedMovies.length
-    ? searchedMovies
-    : movies
-
-  console.log(moviesToDisplay)
+  if (session.votedApplied) {
+    moviesToDisplay = [
+      {
+        page: 1,
+        results: database,
+        total_pages: 1,
+        total_results: database.length,
+      },
+    ]
+  } else if (searchedMovies.length) {
+    moviesToDisplay = searchedMovies
+  } else {
+    moviesToDisplay = movies
+  }
 
   const totalMoviesToDisplay = moviesToDisplay.length
     ? moviesToDisplay[0].total_results
