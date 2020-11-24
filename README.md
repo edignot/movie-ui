@@ -55,6 +55,9 @@
 ### [`FE UI repo`](https://github.com/edignot/movie-ui)
   #### Redux Setup
   - [`Reducers`]()
+    - [`Movies Reducer`]()
+    - [`Session Reducer`]()
+    - [`Database Reducer`]()
   - [`Action Creators`]()
 
 
