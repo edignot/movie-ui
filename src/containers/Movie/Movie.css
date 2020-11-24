@@ -2,7 +2,6 @@
   position: relative;
   overflow: hidden;
   padding-top: 150%;
-
   background-color: var(--dark);
   cursor: pointer;
 }
@@ -13,7 +12,6 @@
   width: 100%;
   height: 100%;
   position: absolute;
-
   opacity: 0.6;
   z-index: 1;
 }
@@ -67,6 +65,80 @@
   transition: 0.3s;
 }
 
+.movie-details-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-details-container h2 {
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.movie-duration-language-type-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.movie-duration-language-type-wrapper p {
+  padding: 1rem;
+}
+
 .backdrop-container {
   position: relative;
+  overflow: hidden;
+  padding-top: 56%;
+  background-color: var(--dark);
+}
+
+.backdrop-image {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  opacity: 0.9;
+}
+
+.release-date-website-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 1rem;
+}
+
+.release-date-website-wrapper a {
+  color: inherit;
+  font-weight: 700;
+}
+
+.companies-countries-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.companies-countries-wrapper p {
+  align-self: center;
+}
+
+.companies-list,
+.countries-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.country-item,
+.company-item {
+  margin: 0.2rem;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--medium);
+  background-color: var(--light);
+  box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+}
+
+.movie-description {
+  margin-top: 1rem;
 }

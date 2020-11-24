@@ -1,8 +1,50 @@
 .movies-page-container {
-  padding: 15vh 5vw 5vh 5vw;
+  padding: 12vh 5vw 5vh 5vw;
   background-color: var(--extra-light);
   min-height: 90vh;
   display: flex;
   flex-direction: column;
+}
+
+.search-value-container {
+  display: flex;
+  margin-top: 1rem;
   justify-content: space-between;
+  width: auto;
+  padding: 0.5rem;
+  color: var(--extra-light);
+  border: 1px solid var(--dark);
+  background-color: var(--dark);
+  box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
+  border-radius: 2px;
+}
+
+.search-value {
+  align-self: center;
+  font-size: 1.5rem;
+}
+
+.search-value-button-wrapper {
+  align-self: center;
+  position: relative;
+  width: 2rem;
+}
+
+.search-value-button {
+  position: absolute;
+  margin: auto;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  text-align: center;
+  font-size: 2.3rem;
+  cursor: pointer;
+  color: var(--light);
+}
+
+.search-value-button:hover {
+  font-size: 2.5rem;
+  color: var(--extra-light);
+  transition: 0.3s;
 }

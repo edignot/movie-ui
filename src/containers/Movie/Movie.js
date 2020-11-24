@@ -43,17 +43,21 @@ const Movie = ({ movie }) => {
 
   const mappedProductionCompanies = production_companies
     ? production_companies.map((company) => (
-        <li key={company.id}>{company.name}</li>
+        <li key={company.id} className='company-item'>
+          {company.name}
+        </li>
       ))
     : []
 
   const mappedProductionCountries = production_countries
     ? production_countries.map((country) => (
-        <li key={country.iso_3166_1}>{country.name}</li>
+        <li key={country.iso_3166_1} className='country-item'>
+          {country.name}
+        </li>
       ))
     : []
 
-  const duration = convertMinutes(runtime)
+  const duration = runtime > 0 ? convertMinutes(runtime) : null
 
   const handleDisplayMovieInfo = async () => {
     await dispatch(getSelectedMovieDetails(id))
@@ -106,54 +110,59 @@ const Movie = ({ movie }) => {
           className='close-modal-icon'
           onClick={handleCloseMovieInfo}
         />
+        <section className='movie-details-container'>
+          {(title || name) && <h2>{title || name}</h2>}
 
-        <h2>{title || name}</h2>
-        <p>{runtime && duration}</p>
-        <p>{original_language}</p>
-        <p>{media_type}</p>
-
-        <section className='backdrop-container'>
-          <section
-            className='up-vote-icon-wrapper'
-            onClick={() => handleVote('down')}
-          >
-            <FaThumbsDown />
-            <p className='vote-count'>{down_vote || 0}</p>
+          <section className='movie-duration-language-type-wrapper'>
+            {duration && <p>{duration}</p>}
+            {duration && original_language && <p>|</p>}
+            {original_language && <p>{original_language}</p>}
+            {original_language && media_type && <p>|</p>}
+            <p>{media_type && media_type}</p>
           </section>
 
-          <section
-            className='down-vote-icon-wrapper'
-            onClick={() => handleVote('up')}
-          >
-            <FaThumbsUp />
-            <p className='vote-count'>{up_vote || 0}</p>
+          <section className='backdrop-container'>
+            <section
+              className='up-vote-icon-wrapper'
+              onClick={() => handleVote('down')}
+            >
+              <FaThumbsDown />
+              <p className='vote-count'>{down_vote || 0}</p>
+            </section>
+            <section
+              className='down-vote-icon-wrapper'
+              onClick={() => handleVote('up')}
+            >
+              <FaThumbsUp />
+              <p className='vote-count'>{up_vote || 0}</p>
+            </section>
+            <img
+              src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
+              onError={addDefaultImageSrc}
+              className='backdrop-image'
+            />
           </section>
 
-          <img
-            src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
-            onError={addDefaultImageSrc}
-          />
+          <section className='release-date-website-wrapper'>
+            {release_date && <p>release date {release_date}</p>}
+            {homepage && <a href={homepage}>Visit Official Website</a>}
+          </section>
+
+          {overview && <p className='movie-description'>{overview}</p>}
+
+          {mappedProductionCompanies.length ? (
+            <section className='companies-countries-wrapper'>
+              <p>Production Companies:</p>
+              <ul className='companies-list'>{mappedProductionCompanies}</ul>
+            </section>
+          ) : null}
+          {mappedProductionCompanies.length ? (
+            <section className='companies-countries-wrapper'>
+              <p>Production Countries:</p>
+              <ul className='countries-list'>{mappedProductionCountries}</ul>
+            </section>
+          ) : null}
         </section>
-
-        <p>Release {release_date}</p>
-
-        <p>{overview}</p>
-
-        {homepage && <a href={homepage}>Visit Official Website</a>}
-
-        {mappedProductionCompanies.length && (
-          <section>
-            <p>Production Companies:</p>
-            <ul>{mappedProductionCompanies}</ul>
-          </section>
-        )}
-
-        {mappedProductionCompanies.length && (
-          <section>
-            <p>Production Countries:</p>
-            <ul>{mappedProductionCountries}</ul>
-          </section>
-        )}
       </Modal>
     </>
   )

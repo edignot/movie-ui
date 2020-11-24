@@ -2,13 +2,19 @@
   width: 100%;
   height: 100%;
   padding: 2rem 0;
-}
-
-.movies-container {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-auto-rows: auto;
   grid-gap: 1rem;
+}
+
+.not-found-message-wrapper {
+  min-height: 45vh;
+  display: flex;
+}
+
+.not-found-message-wrapper p {
+  margin: auto;
 }
 
 @media (min-width: 640px) {

@@ -5,6 +5,8 @@ import {
   CLEAR_SELECTED_MOVIE,
   FETCH_MOVIES_BY_TITLE,
   FETCH_SELECTED_MOVIE_DETAILS,
+  CLEAR_VOTED,
+  SELECT_VOTED,
 } from '../utils/action-types'
 
 export const setCurrentPageNumber = (currentPageNumber) => ({
@@ -14,6 +16,14 @@ export const setCurrentPageNumber = (currentPageNumber) => ({
 
 export const clearSearch = () => ({
   type: CLEAR_SEARCH,
+})
+
+export const selectVoted = () => ({
+  type: SELECT_VOTED,
+})
+
+export const clearVoted = () => ({
+  type: CLEAR_VOTED,
 })
 
 export const clearSelectedMovie = () => ({

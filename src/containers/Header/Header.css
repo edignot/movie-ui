@@ -1,0 +1,69 @@
+.header {
+  background-color: var(--light);
+  width: 100vw;
+  height: 10vh;
+  display: flex;
+  justify-content: space-evenly;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  opacity: 0.96;
+  transform: translateY(0);
+  transition: transform 0.3s ease;
+}
+
+.header.shadow {
+  box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
+}
+
+.header.hidden {
+  transform: translateY(-110%);
+}
+
+.header-logo-wrapper {
+  display: flex;
+}
+
+h1 {
+  align-self: center;
+  font-weight: 100;
+  font-size: 2rem;
+  width: 100%;
+  cursor: pointer;
+}
+
+.logo-icon-left,
+.logo-icon-right {
+  align-self: center;
+  font-size: 4rem;
+  margin: 0 1rem;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo-icon-left {
+    animation: logo-spin-left infinite 20s linear;
+  }
+  .logo-icon-right {
+    animation: logo-spin-right infinite 20s linear;
+  }
+}
+
+@keyframes logo-spin-left {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logo-spin-right {
+  from {
+    transform: rotate(-200deg);
+  }
+  to {
+    transform: rotate(160deg);
+  }
+}

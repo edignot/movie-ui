@@ -33,7 +33,28 @@ const Movies = () => {
 
   const searchedMovies = session.searchedMovies
 
-  const moviesToDisplay = searchedMovies.length ? searchedMovies : movies
+  let moviesToDisplay
+
+  if (session.votedApplied) {
+    let paginatedVotedMovies = []
+    let votedMoviesPages = Math.ceil(database.length / 20)
+    const votedMovies = [...database]
+
+    for (let i = 1; i <= votedMoviesPages; i++) {
+      paginatedVotedMovies.push({
+        page: i,
+        results: votedMovies.slice(0, 20),
+        total_pages: votedMoviesPages,
+        total_results: votedMovies.length,
+      })
+      votedMovies.splice(0, 20)
+    }
+    moviesToDisplay = paginatedVotedMovies
+  } else if (searchedMovies.length) {
+    moviesToDisplay = searchedMovies
+  } else {
+    moviesToDisplay = movies
+  }
 
   const totalMoviesToDisplay = moviesToDisplay.length
     ? moviesToDisplay[0].total_results
@@ -81,12 +102,14 @@ const Movies = () => {
 
   return (
     <>
-      <section>
-        {(!mappedMovies || !mappedMovies.length) && <p>No movies found...</p>}
-      </section>
+      {(!mappedMovies || !mappedMovies.length) && (
+        <section className='not-found-message-wrapper'>
+          <p>No movies found...</p>
+        </section>
+      )}
 
       <section className='movies-container'>
-        {mappedMovies && mappedMovies.length && mappedMovies}
+        {mappedMovies && mappedMovies.length ? mappedMovies : null}
       </section>
 
       {loading && <LoadingSpinner asOverlay />}
