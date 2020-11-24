@@ -10,6 +10,8 @@
 
 :movie_camera: This is a MERN full-stack application that pulls movie data from downstream[`The Movie Database API`](https://developers.themoviedb.org/3/getting-started/introduction) API, displays trending movies, and allows users to search movies by name, up-vote, and down-vote movies.
 
+:exclamation: This application has two separate GitHub repositories [`Front-End | UI`](https://github.com/edignot/movie-ui) and [`Back-End | Server`](https://github.com/edignot/movie-api), but readme file contains the same information and links for simplicity pusrposes.
+
 ## Completed MVP User Stories:
 - [x] A user should be able to search movie by title and see all results mattching the search input.
 - [x] A user should be able to click through pages if more than 20 results match search input, trending movies or voted movies.
