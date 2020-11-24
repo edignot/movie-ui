@@ -53,13 +53,30 @@
 ## File Structure:
 ### [`BE SERVER repo`](https://github.com/edignot/movie-api)
 ### [`FE UI repo`](https://github.com/edignot/movie-ui)
+  #### API Calls
+  - [`API Calls to Server`](https://github.com/edignot/movie-ui/blob/master/src/api/index.js)
   #### Redux Setup
   - [`Reducers`]()
-    - [`Movies Reducer`]()
-    - [`Session Reducer`]()
-    - [`Database Reducer`]()
-  - [`Action Creators`]()
-
+    - [`Movies Reducer`](https://github.com/edignot/movie-ui/blob/master/src/reducers/movies.js)
+    - [`Session Reducer`](https://github.com/edignot/movie-ui/blob/master/src/reducers/session.js)
+    - [`Database Reducer`](https://github.com/edignot/movie-ui/blob/master/src/reducers/database.js)
+  - [`Action Creators`](https://github.com/edignot/movie-ui/tree/master/src/actions)
+    - [`Movies Action Creator`](https://github.com/edignot/movie-ui/blob/master/src/actions/movies.js)
+    - [`Session Action Creator`](https://github.com/edignot/movie-ui/blob/master/src/actions/session.js)
+    - [`Database Action Creator`](https://github.com/edignot/movie-ui/blob/master/src/actions/database.js)
+  - [`Action Types`](https://github.com/edignot/movie-ui/blob/master/src/utils/action-types.js)
+  #### Page Components
+  - [`Movies Page`](https://github.com/edignot/movie-ui/blob/master/src/pages/MoviesPage/MoviesPage.js)
+  #### Container Components
+  - [`Form Component`](https://github.com/edignot/movie-ui/blob/master/src/containers/Form/Form.js)
+  - [`Movies Component`](https://github.com/edignot/movie-ui/blob/master/src/containers/Movies/Movies.js)
+  - [`Movie Component`](https://github.com/edignot/movie-ui/blob/master/src/containers/Movie/Movie.js)
+  - [`Pagination Component`](https://github.com/edignot/movie-ui/blob/master/src/containers/Pagination/Pagination.js)
+  - [`Header Component`](https://github.com/edignot/movie-ui/blob/master/src/containers/Header/Header.js)
+  #### UI Components
+  - [`Layout Component`](https://github.com/edignot/movie-ui/blob/master/src/components/Layout/Layout.js)
+  - [`Modal Component`](https://github.com/edignot/movie-ui/blob/master/src/components/Modal/Modal.js)
+  - [`Loading Spinner Component`](https://github.com/edignot/movie-ui/blob/master/src/components/LoadingSpinner/LoadingSpinner.js)
 
 ## FE Development Instructions:
 - [clone FE repo](https://github.com/edignot/movie-ui)
