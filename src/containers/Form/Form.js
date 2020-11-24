@@ -50,8 +50,10 @@ const Form = () => {
     <>
       <section className='search-input-voted-wrapper'>
         <section className='search-input-wrapper'>
+          <label for='search-by-movie-title' className='label'>Search by movie title</label>
           <input
             name='Search by Movie Title'
+            id='search-by-movie-title'
             type='text'
             placeholder='Search by Movie Title'
             onChange={handleChange}
@@ -61,6 +63,7 @@ const Form = () => {
             data-testid='search-input'
           />
           <button onClick={searchHandler} className='search-button'>
+            <p className='search-button-text'>Search</p>
             <BiSearch />
           </button>
         </section>

@@ -22,14 +22,15 @@
 }
 
 .search-button {
-  margin: 0.5rem;
+  margin: 0.5rem 0;
   padding: 0.5rem;
-  border-radius: 2px;
+  border-radius: 0 2px 2px 0;
   border: 1px solid var(--medium);
   background-color: var(--medium-dark);
   color: var(--light);
   box-shadow: 0 9px 9px -9px rgba(0, 0, 0, 0.13);
   cursor: pointer;
+  position: relative;
 }
 
 .search-button:hover {
@@ -38,8 +39,8 @@
   transition: 0.3s;
 }
 
-.search-button {
-  border-radius: 0 2px 2px 0;
-  cursor: pointer;
-  margin: 0.5rem 0;
+.search-button-text,
+.label {
+  position: absolute;
+  opacity: 0;
 }

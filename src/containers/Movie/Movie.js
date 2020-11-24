@@ -34,7 +34,6 @@ const Movie = ({ movie }) => {
   } = movie
 
   const {
-    genres,
     homepage,
     production_companies,
     production_countries,
@@ -113,7 +112,7 @@ const Movie = ({ movie }) => {
           src={`https://image.tmdb.org/t/p/w500${poster_path}`}
           onError={addDefaultImageSrc}
           className='movie-image'
-          alt={title}
+          alt='movie poster'
           onClick={handleDisplayMovieInfo}
         />
       </section>
@@ -153,6 +152,7 @@ const Movie = ({ movie }) => {
               src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
               onError={addDefaultImageSrc}
               className='backdrop-image'
+              alt='movie backdrop'
             />
           </section>
 
