@@ -77,6 +77,10 @@
   - [`Layout Component`](https://github.com/edignot/movie-ui/blob/master/src/components/Layout/Layout.js)
   - [`Modal Component`](https://github.com/edignot/movie-ui/blob/master/src/components/Modal/Modal.js)
   - [`Loading Spinner Component`](https://github.com/edignot/movie-ui/blob/master/src/components/LoadingSpinner/LoadingSpinner.js)
+  #### Redux Testing
+  - [` `]()
+  #### React Components Testing
+  - [` `]()
 
 ## FE Development Instructions:
 - [clone FE repo](https://github.com/edignot/movie-ui)
