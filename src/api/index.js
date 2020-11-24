@@ -9,11 +9,28 @@ export const fetchMoviesByTitle = (searchValue, page) =>
 
 export const fetchSelectedMovieDetails = (id) => axios.get(`${BASE_URL}/${id}`)
 
-export const postUpVoteOrDownVoteMovie = (id, title, posterPath, vote) =>
+export const postUpVoteOrDownVoteMovie = (
+  id,
+  title,
+  posterPath,
+  vote,
+  backdropPath,
+  releaseDate,
+  originalLanguage,
+  overview,
+  mediaType,
+  name,
+) =>
   axios.post(`${BASE_URL}/${id}`, {
     title,
     posterPath,
     vote,
+    backdropPath,
+    releaseDate,
+    originalLanguage,
+    overview,
+    mediaType,
+    name,
   })
 
 export const fetchAllVotedMovies = () => axios.get(`${BASE_URL}/voted`)

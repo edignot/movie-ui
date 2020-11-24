@@ -70,7 +70,20 @@ const Movie = ({ movie }) => {
   }
 
   const handleVote = (vote) => {
-    dispatch(upVoteOrDownVoteMovie(id, title || name, poster_path, vote))
+    dispatch(
+      upVoteOrDownVoteMovie(
+        id,
+        title,
+        poster_path,
+        vote,
+        backdrop_path,
+        release_date,
+        original_language,
+        overview,
+        media_type,
+        name,
+      ),
+    )
   }
 
   const addDefaultImageSrc = (e) => {

@@ -4,15 +4,30 @@ import {
   UP_VOTE_OR_DOWN_VOTE_MOVIE,
 } from '../utils/action-types'
 
-export const upVoteOrDownVoteMovie = (id, title, posterPath, vote) => async (
-  dispatch,
-) => {
+export const upVoteOrDownVoteMovie = (
+  id,
+  title,
+  posterPath,
+  vote,
+  backdropPath,
+  releaseDate,
+  originalLanguage,
+  overview,
+  mediaType,
+  name,
+) => async (dispatch) => {
   try {
     const { data } = await api.postUpVoteOrDownVoteMovie(
       id,
       title,
       posterPath,
       vote,
+      backdropPath,
+      releaseDate,
+      originalLanguage,
+      overview,
+      mediaType,
+      name,
     )
     dispatch({
       type: UP_VOTE_OR_DOWN_VOTE_MOVIE,
