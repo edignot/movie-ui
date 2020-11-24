@@ -39,15 +39,18 @@ const Movies = () => {
     let paginatedVotedMovies = []
     let votedMoviesPages = Math.ceil(database.length / 20)
     const votedMovies = [...database]
+    const votedSortedMovies = votedMovies.sort((a, b) => {
+      return a.id - b.id
+    })
 
     for (let i = 1; i <= votedMoviesPages; i++) {
       paginatedVotedMovies.push({
         page: i,
-        results: votedMovies.slice(0, 20),
+        results: votedSortedMovies.slice(0, 20),
         total_pages: votedMoviesPages,
-        total_results: votedMovies.length,
+        total_results: votedSortedMovies.length,
       })
-      votedMovies.splice(0, 20)
+      votedSortedMovies.splice(0, 20)
     }
     moviesToDisplay = paginatedVotedMovies
   } else if (searchedMovies.length) {
