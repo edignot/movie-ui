@@ -36,14 +36,20 @@ const Movies = () => {
   let moviesToDisplay
 
   if (session.votedApplied) {
-    moviesToDisplay = [
-      {
-        page: 1,
-        results: database,
-        total_pages: 1,
-        total_results: database.length,
-      },
-    ]
+    let paginatedVotedMovies = []
+    let votedMoviesPages = Math.ceil(database.length / 20)
+    const votedMovies = [...database]
+
+    for (let i = 1; i <= votedMoviesPages; i++) {
+      paginatedVotedMovies.push({
+        page: i,
+        results: votedMovies.slice(0, 20),
+        total_pages: votedMoviesPages,
+        total_results: votedMovies.length,
+      })
+      votedMovies.splice(0, 20)
+    }
+    moviesToDisplay = paginatedVotedMovies
   } else if (searchedMovies.length) {
     moviesToDisplay = searchedMovies
   } else {
