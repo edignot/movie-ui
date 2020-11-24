@@ -17,11 +17,22 @@
 - [x] A user should be able to click on any movie and see additional info about.
 - [x] A user should be able to up-vote or down-vote a movie and all movies that has any votes should be stored to the database.
 - [x] A user should be able to see all movies that has any votes by clicking 'voted movies' button.
+## Goals Achieved:
+- [x] BE server is deployed to Heroku and FE is deployed to Netlify.
+- [x] BE Express server created and connected to MongoDB.
+- [x] BE API endpoints are tested.
+- [x] FE unit tests added to all components and some integrations tests.
+- [x] Redux reducers and action creators tested.
 
-## Future User Stories:
+## Future User Stories and goals:
 - [ ] A user should be able to filter movies by language, genre, release date, etc.
 - [ ] A user should be able to login, only see personal voted movies and only be able to vote once for one movie. 
 - [ ] A user should be able to sort movies by date.
+## Future Goals:
+- [ ] Implement user login and authentication.
+- [ ] Implement PWA features, make app downloadable.
+- [ ] Make application fully responsive, check all breaking points and fix issues.
+- [ ] Add more front end integration tests and async tests, mock API calls
 
 ## FE Tech Stack:
 - `Javascript | ES6`
@@ -42,6 +53,10 @@
 ## File Structure:
 ### [`BE SERVER repo`](https://github.com/edignot/movie-api)
 ### [`FE UI repo`](https://github.com/edignot/movie-ui)
+  #### Redux Setup
+    [`Reducers`]()
+    [`Action Creators`]()
+
 
 ## FE Development Instructions:
 - [clone FE repo](https://github.com/edignot/movie-ui)
