@@ -104,7 +104,7 @@ const Movies = () => {
   }
 
   return (
-    <>
+    <section>
       {(!mappedMovies || !mappedMovies.length) && (
         <section className='not-found-message-wrapper'>
           <p>No movies found...</p>
@@ -122,7 +122,7 @@ const Movies = () => {
         totalMovies={totalMoviesToDisplay}
         paginate={paginateHandler}
       />
-    </>
+    </section>
   )
 }
 
