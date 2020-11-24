@@ -54,8 +54,8 @@
 ### [`BE SERVER repo`](https://github.com/edignot/movie-api)
 ### [`FE UI repo`](https://github.com/edignot/movie-ui)
   #### Redux Setup
-   [`Reducers`]()
-   [`Action Creators`]()
+  - [`Reducers`]()
+  - [`Action Creators`]()
 
 
 ## FE Development Instructions:
