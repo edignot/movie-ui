@@ -52,6 +52,18 @@
 
 ## File Structure:
 ### [`BE SERVER repo`](https://github.com/edignot/movie-api)
+  #### Server
+  - [`Server Setup`](https://github.com/edignot/movie-api/blob/master/server.js)
+  - [`Express App Setup`](https://github.com/edignot/movie-api/blob/master/app.js)
+  - [`Routes`](https://github.com/edignot/movie-api/blob/master/api/routes/movieRouter.js)
+  - [`Controllers`](https://github.com/edignot/movie-api/blob/master/api/controllers/movieController.js)
+  - [`Downstream API Network Calls`](https://github.com/edignot/movie-api/blob/master/api/utility/networkCalls.js)
+  #### Database
+  - [`Mongoose Connection`](https://github.com/edignot/movie-api/blob/master/api/config/db.js)
+  - [`Movie Model`](https://github.com/edignot/movie-api/blob/master/api/models/movieModel.js)
+  #### API Tests
+  - [`API Endpoint Tests`](https://github.com/edignot/movie-api/blob/master/api/tests/movieEndpoints.test.js)
+
 ### [`FE UI repo`](https://github.com/edignot/movie-ui)
   #### API Calls
   - [`API Calls to Server`](https://github.com/edignot/movie-ui/blob/master/src/api/index.js)
